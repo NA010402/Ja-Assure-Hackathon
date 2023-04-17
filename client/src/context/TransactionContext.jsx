@@ -16,7 +16,7 @@ const createEthereumContract = () => {
 };
 
 export const TransactionsProvider = ({ children }) => {
-  const [formData, setformData] = useState({ addressTo: "", amount: "", keyword: "", message: "" });
+  const [formData, setformData] = useState({ seller_name: "", seller_id: "",buyer_name: "", buyer_id: "", bill_id: "", purchase_date: "", price: ""});
   const [currentAccount, setCurrentAccount] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [transactionCount, setTransactionCount] = useState(localStorage.getItem("transactionCount"));
@@ -34,12 +34,13 @@ export const TransactionsProvider = ({ children }) => {
         const availableTransactions = await transactionsContract.getAllTransactions();
 
         const structuredTransactions = availableTransactions.map((transaction) => ({
-          addressTo: transaction.receiver,
-          addressFrom: transaction.sender,
-          timestamp: new Date(transaction.timestamp.toNumber() * 1000).toLocaleString(),
-          message: transaction.message,
-          keyword: transaction.keyword,
-          amount: parseInt(transaction.amount._hex) / (10 ** 18)
+          seller_name: transaction.seller_name,
+          seller_id: transaction.seller_id,
+          buyer_name: transaction.buyer_name,
+          buyer_id: transaction.buyer_id,
+          bill_id: transaction.bill_id,
+          purchase_date: transaction.purchase_date,
+          price: transaction.price
         }));
 
         console.log(structuredTransactions);

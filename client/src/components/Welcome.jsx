@@ -94,10 +94,13 @@ const Welcome = () => {
             </div>
           </div>
           <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
-            <Input placeholder="Address To" name="addressTo" type="text" handleChange={handleChange} />
-            <Input placeholder="Amount (ETH)" name="amount" type="number" handleChange={handleChange} />
-            <Input placeholder="Keyword (Gif)" name="keyword" type="text" handleChange={handleChange} />
-            <Input placeholder="Enter Message" name="message" type="text" handleChange={handleChange} />
+            <Input placeholder="Seller Name" name="seller_name" type="text" handleChange={handleChange} />
+            <Input placeholder="Seller id" name="seller_id" type="text" handleChange={handleChange} />
+            <Input placeholder="Buyer_id" name="buyer_id" type="text" handleChange={handleChange} />
+            <Input placeholder="Bill id" name="Bill_id" type="text" handleChange={handleChange} />
+            <Input placeholder="Purchase Date" name="purchase_date" type="text" handleChange={handleChange} />
+            <Input placeholder="Price" name="Amount" type="price" handleChange={handleChange} />
+
 
             <div className="h-[1px] w-full bg-gray-400 my-2" />
 
