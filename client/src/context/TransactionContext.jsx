@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
-
+import { nanoid } from "nanoid";
 import { contractABI, contractAddress } from "../utils/constants";
 
 export const TransactionContext = React.createContext();
@@ -107,7 +107,8 @@ export const TransactionsProvider = ({ children }) => {
       if (ethereum) {
         const { seller_name,seller_id, buyer_name,buyer_id,bill_id,purchase_date,price} = formData;
         const transactionsContract = createEthereumContract();
-        
+        const myId = nanoid(); 
+        console.log(myId)
         // await ethereum.request({
         //   method: "eth_sendTransaction",
         //   params: [{
