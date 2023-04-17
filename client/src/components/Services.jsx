@@ -27,7 +27,7 @@ const Services = () => (
           continue to improve
         </h1>
         <p className="text-left my-2 text-white font-light md:w-9/12 w-11/12 text-base">
-          The best choice for buying and selling your crypto assets, with the
+          The best choice for securing your assets, with the
           various super friendly services we offer
         </p>
       </div>
@@ -37,19 +37,19 @@ const Services = () => (
           color="bg-[#2952E3]"
           title="Security gurantee"
           icon={<BsShieldFillCheck fontSize={21} className="text-white" />}
-          subtitle="Security is guranteed. We always maintain privacy and maintain the quality of our products"
+          subtitle="Security is guranteed. We always maintain privacy and maintain the trust of our customers"
         />
         <ServiceCard
           color="bg-[#8945F8]"
-          title="Best exchange rates"
+          title="Smart Contracts"
           icon={<BiSearchAlt fontSize={21} className="text-white" />}
-          subtitle="Security is guranteed. We always maintain privacy and maintain the quality of our products"
+          subtitle="Smart contract services that enable users to create and execute self-executing contracts on the Ethereum blockchain"
         />
         <ServiceCard
           color="bg-[#F84550]"
-          title="Fastest transactions"
+          title="Access Management"
           icon={<RiHeart2Fill fontSize={21} className="text-white" />}
-          subtitle="Security is guranteed. We always maintain privacy and maintain the quality of our products"
+          subtitle="Access management services that allow users to control who can access their data on the blockchain"
         />
       </div>
     </div>
