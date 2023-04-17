@@ -107,8 +107,7 @@ export const TransactionsProvider = ({ children }) => {
       if (ethereum) {
         const { seller_name,seller_id, buyer_name,buyer_id,bill_id,purchase_date,price} = formData;
         const transactionsContract = createEthereumContract();
-        const parsedAmount = ethers.utils.parseEther(amount);
-
+        
         // await ethereum.request({
         //   method: "eth_sendTransaction",
         //   params: [{
