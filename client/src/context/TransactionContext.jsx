@@ -105,7 +105,7 @@ export const TransactionsProvider = ({ children }) => {
   const sendTransaction = async () => {
     try {
       if (ethereum) {
-        const { addressTo, amount, keyword, message } = formData;
+        const { seller_name,seller_id, buyer_name,buyer_id,bill_id,purchase_date,price} = formData;
         const transactionsContract = createEthereumContract();
         const parsedAmount = ethers.utils.parseEther(amount);
 
@@ -119,7 +119,7 @@ export const TransactionsProvider = ({ children }) => {
         //   }],
         // });
 
-        const transactionHash = await transactionsContract.addToBlockchain(addressTo, parsedAmount, message, keyword);
+        const transactionHash = await transactionsContract.addToBlockchain(seller_name,seller_id, buyer_name,buyer_id,bill_id,purchase_date,price);
 
         setIsLoading(true);
         console.log(`Loading - ${transactionHash.hash}`);
