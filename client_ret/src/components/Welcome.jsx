@@ -21,16 +21,18 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 );
 
 const Welcome = () => {
-  const { currentAccount, connectWallet, handleChange, sendTransaction, formData, isLoading, addImages } = useContext(TransactionContext);
+  const { currentAccount, connectWallet, handleChange, sendTransaction, formData, isLoading, addImages, retid, retkey, loadret } = useContext(TransactionContext);
 
   const handleSubmit = (e) => {
-    const { seller_name,seller_id, buyer_name,buyer_id,bill_id,purchase_date,price } = formData;
+    const id = retid;
+    const key= retkey;
 
     e.preventDefault();
 
-    if (!seller_name || !seller_id || !buyer_name || !buyer_id || !bill_id || !purchase_date || !price) return;
+    if (!id || !key) return;
 
-    sendTransaction();
+    loadret();
+    // sendTransaction();
   };
 
   return (
@@ -94,14 +96,8 @@ const Welcome = () => {
             </div>
           </div>
           <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
-            <Input placeholder="Seller Name" name="seller_name" type="text" handleChange={handleChange} />
-            <Input placeholder="Seller Id ( Pan / Aadhaar )" name="seller_id" type="text" handleChange={handleChange} />
-            <Input placeholder="Buyer Name" name="buyer_name" type="text" handleChange={handleChange} />
-            <Input placeholder="Buyer Id ( Pan / Aadhaar )" name="buyer_id" type="text" handleChange={handleChange} />
-            <Input placeholder="Bill Id" name="bill_id" type="text" handleChange={handleChange} />
-            <Input placeholder="Purchase Date" name="purchase_date" type="text" handleChange={handleChange} />
-            <Input placeholder="Price" name="price" type="text" handleChange={handleChange} />
-            <input placeholder="Upload Images" name = "images" id="imageInput" onChange={(e) => addImages(e)} type="file" multiple className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"/>
+            <Input placeholder="Purchase ID" name="id" type="text" handleChange={handleChange} />
+            <Input placeholder="Private Key" name="key" type="text" handleChange={handleChange} />
 
 
             <div className="h-[1px] w-full bg-gray-400 my-2" />
@@ -114,7 +110,7 @@ const Welcome = () => {
                   onClick={handleSubmit}
                   className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
                 >
-                  Send now
+                  Retrieve
                 </button>
               )}
           </div>

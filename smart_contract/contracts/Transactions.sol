@@ -17,13 +17,14 @@ contract Transactions {
         string bill_id;
         string purchase_date;
         string price;
+        string pvt_key;
     }
 
     TransferStruct[] transactions;
 
-    function addToBlockchain(string memory seller_name, string memory seller_id,string memory buyer_name, string memory buyer_id, string memory bill_id, string memory purchase_date, string memory price) public {
+    function addToBlockchain(string memory seller_name, string memory seller_id,string memory buyer_name, string memory buyer_id, string memory bill_id, string memory purchase_date, string memory price, string memory pvt_key) public {
         transactionCount += 1;
-        transactions.push(TransferStruct(seller_name, seller_id, buyer_name, buyer_id, bill_id, purchase_date, price));
+        transactions.push(TransferStruct(seller_name, seller_id, buyer_name, buyer_id, bill_id, purchase_date, price, pvt_key));
 
         // emit Transfer(msg.sender, receiver, amount, message, block.timestamp, keyword);
     }

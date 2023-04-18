@@ -26,29 +26,28 @@ const TransactionsCard = ({ seller_name,seller_id, buyer_name,buyer_id,bill_id,p
         </div>
       </div>
     </div>
+    
   );
 };
 
 const Transactions = () => {
-  const { transactions, currentAccount } = useContext(TransactionContext);
-
+  const { transactions, retData } = useContext(TransactionContext);
+  const { id, key } = {...retData};
+  const {pvt_key} = {...transactions[id-1001]};
+  console.log("from transations", id)
   return (
     <div className="flex w-full justify-center items-center 2xl:px-20 gradient-bg-transactions">
       <div className="flex flex-col md:p-12 py-12 px-4">
-        {currentAccount ? (
-          <h3 className="text-white text-3xl text-center my-2">
-            Latest Transactions
-          </h3>
-        ) : (
-          <h3 className="text-white text-3xl text-center my-2">
-            Connect your account to see the latest transactions
-          </h3>
-        )}
-
         <div className="flex flex-wrap justify-center items-center mt-10">
-          {[...transactions].reverse().map((transaction, i) => (
-            <TransactionsCard key={i} {...transaction} />
-          ))}
+          {
+            id != "" ?
+            
+            ( 
+              pvt_key == key?
+            (<TransactionsCard {...transactions[parseInt(id)-1001]} />) :
+            (<h1 className="text-white my-2 text-3xl text-center">Incorrect private key!</h1>)) :
+            (<h1></h1>)
+          }
         </div>
       </div>
     </div>

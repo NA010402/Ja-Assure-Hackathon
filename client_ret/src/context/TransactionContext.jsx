@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { nanoid } from "nanoid";
 import { contractABI, contractAddress } from "../utils/constants";
-import { deflate } from 'pako';
+
 
 export const TransactionContext = React.createContext();
 
@@ -22,9 +22,21 @@ export const TransactionsProvider = ({ children }) => {
   const [transactionCount, setTransactionCount] = useState(localStorage.getItem("transactionCount"));
   const [transactions, setTransactions] = useState([]);
   const [imageData, setImageData] = useState("");
+  const [retid, setid] = useState("");
+  const [retkey, setkey] = useState("");
+  const [retData, setretData] = useState({ id: "", key: ""});
+
+
 
   const handleChange = (e, name) => {
-    setformData((prevState) => ({ ...prevState, [name]: e.target.value }));
+    if(name == 'id') setid(e.target.value);
+    if(name == 'key') setkey(e.target.value);
+    console.log("change handled")
+    // setretData((prevState) => ({ ...prevState, [name]: e.target.value }));
+  };
+  const loadret = () => {
+    setretData({id:retid, key:retkey});
+    console.log("load ret");
   };
   const addImages = (e) => {
     const imageInput = document.getElementById('imageInput');
@@ -48,7 +60,7 @@ export const TransactionsProvider = ({ children }) => {
     }
     console.log('going good')
   };
-
+  
   const getAllTransactions = async () => {
     try {
       if (ethereum) {
@@ -182,6 +194,10 @@ export const TransactionsProvider = ({ children }) => {
         handleChange,
         addImages,
         formData,
+        retData,
+        loadret,
+        retid,
+        retkey,
       }}
     >
       {children}
