@@ -1,14 +1,14 @@
 # Krypt - Web 3.0 Blockchain Application
-![Krypt](https://i.ibb.co/DVF4tNW/image.png)
+![Screenshot (23)](https://user-images.githubusercontent.com/73234871/232742693-310e6f71-5046-4671-a83e-a6477ec5da18.png)
 
 ## Introduction
-This is a code repository for the corresponding video tutorial.
+A blockchain-based application to store purchase details securely and immutably.
+Using Web 3.0 methodologies, Solidity and Metamask
 
-Using Web 3.0 methodologies, Solidity and Metamask you'll learn how to build a your first real Web 3.0 Application - from start to finish.
+## Development Server
 
-Project created in collaboration with Enyel Sequeira: 
-Portfolio - https://www.enyelsequeira.com
-E-mail - enyelsequeira1994@gmail.com
-Want me to cover the project you've created? Send me an e-mail 👌
+1) cd into the client folder.
 
-## Launch your development career with project-based coaching - https://www.jsmastery.pro
+3) Run `npm i` to install the dependency packages. 
+
+3) Run `npm run dev` to start the server.
